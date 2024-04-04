@@ -1,42 +1,40 @@
-CREATE TABLE users(
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    nickname VARCHAR(50) NOT NULL,
-    score INT DEFAULT 0,
-    role VARCHAR(50) NOT NULL,
-    email varchar(20) not null,
-    profile_url VARCHAR(255),
-    provider VARCHAR(50),
-    provider_id VARCHAR(50),
+CREATE TABLE member
+(
+    id         BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name       VARCHAR(50) NOT NULL,
+    nickname   VARCHAR(50) NOT NULL,
+    score      INT       DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE chat(
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    user_id BIGINT,
-    room_id BIGINT,
-    content TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+CREATE TABLE agent
+(
+    id         BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name       VARCHAR(50) NOT NULL,
+    difficulty INT                  DEFAULT 0,
+    about      TEXT        NOT NULL DEFAULT '',
+    created_at TIMESTAMP            DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP            DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE room(
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    agent_id BIGINT,
-    name VARCHAR(50) NOT NULL,
-    opener_id BIGINT,
-    status VARCHAR(50),
-    prompt TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+CREATE TABLE room
+(
+    id         BIGINT PRIMARY KEY AUTO_INCREMENT,
+    member_id  BIGINT,
+    agent_id   BIGINT,
+    name       VARCHAR(50) NOT NULL,
+    status     ENUM ('OPEN', 'CLOSE') DEFAULT 'OPEN',
+    created_at TIMESTAMP              DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP              DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE agent(
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    difficulty INT DEFAULT 0,
-    about TEXT NOT NULL DEFAULT '',
+CREATE TABLE chat
+(
+    id         BIGINT PRIMARY KEY AUTO_INCREMENT,
+    member_id  BIGINT,
+    room_id    BIGINT,
+    content    TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
