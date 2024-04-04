@@ -1,6 +1,6 @@
-package usay.app.common;
+package usay.app.domain.room.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import usay.app.common.domain.Room;
+import usay.app.domain.room.entity.Room;
 
 public interface RoomRepository extends JpaRepository<Room, Long> {}

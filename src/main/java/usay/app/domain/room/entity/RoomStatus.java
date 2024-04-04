@@ -1,4 +1,4 @@
-package usay.app.common.domain;
+package usay.app.domain.room.entity;
 
 public enum RoomStatus {
 	OPEN, CLOSE

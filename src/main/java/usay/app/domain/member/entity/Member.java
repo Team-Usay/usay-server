@@ -1,4 +1,4 @@
-package usay.app.common.domain;
+package usay.app.domain.member.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,6 +12,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import usay.app.common.entity.BaseEntity;
+import usay.app.domain.chat.entity.Chat;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
