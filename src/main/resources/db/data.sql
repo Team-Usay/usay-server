@@ -1,19 +1,28 @@
--- Users
-INSERT INTO users(name, nickname, score, role, email, profile_url, provider, provider_id) VALUES
-('John Doe', 'johndoe', 100, 'user', 'johndoe@example.com', 'http://example.com/johndoe', 'github', '1'),
-('Jane Doe', 'janedoe', 200, 'user', 'janedoe@example.com', 'http://example.com/janedoe', 'github', '2');
+-- Member
+INSERT INTO member(name, nickname, score)
+VALUES ('송효섭', 'Mihawk', 1),
+       ('최우성', 'Teo', 2),
+       ('이정호', 'Jamie', 3);
 
 -- Agents
-INSERT INTO agent(name, difficulty, about) VALUES
-('Agent 1', 1, 'This is Agent 1'),
-('Agent 2', 2, 'This is Agent 2');
+INSERT INTO agent(name, difficulty, about)
+VALUES ('GEMMA-2B', 1, 'Come on silly human!'),
+       ('GEMMA-7B', 2, 'I am better than GPT-3!'),
+       ('GPT-4', 3, 'Altman is my father!, Give me money'),
+       ('Neumann', 4, 'Enigma is my brother!'),
+       ('Turing', 5, 'No one can beat me!');
+
 
 -- Rooms
-INSERT INTO room(agent_id, name, opener_id, status, prompt) VALUES
-(1, 'Room 1', 1, 'open', 'This is the prompt for Room 1'),
-(2, 'Room 2', 2, 'open', 'This is the prompt for Room 2');
+INSERT INTO room(name, status, agent_id)
+VALUES ('Room 1', 'OPEN', 1),
+       ('Room 2', 'CLOSE', 2);
 
 -- Chats
-INSERT INTO chat(user_id, room_id, content) VALUES
-(1, 1, 'Hello, this is John Doe'),
-(2, 2, 'Hello, this is Jane Doe');
+INSERT INTO chat(member_id, room_id, content)
+VALUES (1, 1, 'I am Mihawk'),
+       (2, 1, 'I am Teo'),
+       (3, 1, 'I am Jamie'),
+       (1, 2, 'I am Mihawk'),
+       (2, 2, 'I am Teo'),
+       (3, 2, 'I am Jamie');
