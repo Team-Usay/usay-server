@@ -1,3 +1,12 @@
+---
+name: pull request template
+about: PR 발행을 위한 템플릿입니다.
+title: "[Server]"
+labels: 
+assignees: ''
+
+---
+
 ## #️⃣ 연관된 이슈
 
 > ex) #이슈번호, #이슈번호
