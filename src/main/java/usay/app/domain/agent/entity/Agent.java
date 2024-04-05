@@ -10,7 +10,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import usay.app.common.entity.BaseEntity;
@@ -40,7 +39,6 @@ public class Agent extends BaseEntity {
 	@OneToMany(mappedBy = "agent", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Room> rooms;
 
-	@Builder
 	public Agent(String name, Integer difficulty, String about) {
 		this.name = name;
 		this.difficulty = difficulty;

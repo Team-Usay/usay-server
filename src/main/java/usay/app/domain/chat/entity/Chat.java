@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import usay.app.common.entity.BaseEntity;
@@ -35,7 +34,6 @@ public class Chat extends BaseEntity {
 	@JoinColumn(name = "room_id")
 	private Room room;
 
-	@Builder
 	public Chat(String content, Member member, Room room) {
 		this.content = content;
 		this.member = member;

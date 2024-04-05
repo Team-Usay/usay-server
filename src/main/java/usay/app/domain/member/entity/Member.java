@@ -10,7 +10,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import usay.app.common.entity.BaseEntity;
@@ -23,7 +22,6 @@ public class Member extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "member_id")
 	private Long id;
 
 	@NotNull
@@ -39,7 +37,6 @@ public class Member extends BaseEntity {
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Chat> chats;
 
-	@Builder
 	public Member(String name, String nickname, Integer score) {
 		this.name = name;
 		this.nickname = nickname;

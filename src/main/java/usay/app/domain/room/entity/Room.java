@@ -11,22 +11,21 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import usay.app.common.entity.BaseEntity;
 import usay.app.domain.agent.entity.Agent;
 
 @Getter
-@Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+
 public class Room extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-
+	
 	@NotNull
 	@Column(nullable = false)
 	private String name;
@@ -39,7 +38,6 @@ public class Room extends BaseEntity {
 	@JoinColumn(name = "agent_id")
 	private Agent agent;
 
-	@Builder
 	public Room(String name, RoomStatus status, Agent agent) {
 		this.name = name;
 		this.status = status;
