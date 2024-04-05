@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -24,8 +25,12 @@ public class Member extends BaseEntity {
 	@Column(name = "member_id")
 	private Long id;
 
+	@NotNull
+	@Column(nullable = false)
 	private String name;
 
+	@NotNull
+	@Column(nullable = false)
 	private String nickname;
 
 	private Integer score;
