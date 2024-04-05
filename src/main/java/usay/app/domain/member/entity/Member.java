@@ -1,5 +1,6 @@
 package usay.app.domain.member.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,7 +36,7 @@ public class Member extends BaseEntity {
 
 	private Integer score;
 
-	@OneToMany(mappedBy = "member", orphanRemoval = true)
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Chat> chats;
 
 	@Builder

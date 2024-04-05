@@ -1,5 +1,6 @@
 package usay.app.domain.agent.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Agent extends BaseEntity {
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String about;
 
-	@OneToMany(mappedBy = "agent", orphanRemoval = true)
+	@OneToMany(mappedBy = "agent", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Room> rooms;
 
 	@Builder
