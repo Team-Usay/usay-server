@@ -1,8 +1,8 @@
 ---
 name: feature issue template
 about: 기능 구현을 위한 이슈 템플릿입니다.
-title: ''
-labels: ''
+title: "[Feat]"
+labels: feature
 assignees: ''
 
 ---
