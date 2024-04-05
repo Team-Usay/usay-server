@@ -32,6 +32,8 @@ public class Member extends BaseEntity {
 	@Column(nullable = false)
 	private String nickname;
 
+	@NotNull
+	@Column(nullable = false)
 	private Integer score;
 
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
