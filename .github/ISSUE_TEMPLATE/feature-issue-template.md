@@ -1,9 +1,9 @@
 ---
 name: feature issue template
 about: 기능 구현을 위한 이슈 템플릿입니다.
-title: "[Feat]"
+title: "\U0001F3AF [Feat]"
 labels: feature
-assignees: ''
+assignees: loveysuby
 
 ---
 
