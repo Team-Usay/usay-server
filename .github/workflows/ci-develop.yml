@@ -11,7 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-
+    env:
+      MYSQL_DATABASE_URL: ${{ secrets.MYSQL_DATABASE_URL }}
+      MYSQL_DATABASE_USERNAME: ${{ secrets.MYSQL_DATABASE_USERNAME }}
+      MYSQL_DATABASE_PASSWORD: ${{ secrets.MYSQL_DATABASE_PASSWORD }}
+      
     steps:
     - name: checkout to develop branch
       uses: actions/checkout@v4
