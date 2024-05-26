@@ -1,4 +1,4 @@
-package usay.app.common.config;
+package usay.app.global.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
