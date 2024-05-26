@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import usay.app.common.entity.BaseEntity;
+import usay.app.domain.common.BaseEntity;
 import usay.app.domain.member.entity.Member;
 import usay.app.domain.room.entity.Room;
 
