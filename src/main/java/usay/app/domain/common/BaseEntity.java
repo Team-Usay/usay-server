@@ -1,4 +1,4 @@
-package usay.app.common.entity;
+package usay.app.domain.common;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

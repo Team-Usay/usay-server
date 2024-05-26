@@ -16,8 +16,7 @@ VALUES ('송효섭', 'Mihawk', 1, '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
        ('김민수', 'Minsu', 14, '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
        ('박지윤', 'Jiyoon', 15, '2021-08-01 00:00:00', '2021-08-01 00:00:00');
 
-
--- Agents
+-- Rooms
 INSERT INTO agent(name, difficulty, about, created_at, updated_at)
 VALUES ('GEMMA-2B', 1, 'Come on silly human!', '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
        ('GEMMA-7B', 2, 'I am better than GPT-3!', '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
@@ -30,8 +29,7 @@ VALUES ('GEMMA-2B', 1, 'Come on silly human!', '2021-08-01 00:00:00', '2021-08-0
        ('ENIAC', 9, 'Pioneer of the electronic age.', '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
        ('Colossus', 10, 'Decoding the war secrets.', '2021-08-01 00:00:00', '2021-08-01 00:00:00');
 
-
--- Rooms
+-- Agents
 INSERT INTO room(name, status, agent_id, created_at, updated_at)
 VALUES ('Room 1', 'OPEN', 1, '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
        ('Room 2', 'OPEN', 2, '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
@@ -48,6 +46,7 @@ VALUES ('Room 1', 'OPEN', 1, '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
        ('Room 13', 'OPEN', 3, '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
        ('Room 14', 'OPEN', 4, '2021-08-01 00:00:00', '2021-08-01 00:00:00'),
        ('Room 15', 'OPEN', 5, '2021-08-01 00:00:00', '2021-08-01 00:00:00');
+
 
 -- Chats
 INSERT INTO chat(member_id, room_id, content, created_at, updated_at)

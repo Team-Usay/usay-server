@@ -12,7 +12,7 @@ import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import usay.app.common.entity.BaseEntity;
+import usay.app.domain.common.BaseEntity;
 import usay.app.domain.room.entity.Room;
 
 @Getter
