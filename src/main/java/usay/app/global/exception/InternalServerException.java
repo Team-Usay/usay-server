@@ -1,7 +1,7 @@
 package usay.app.global.exception;
 
 import lombok.Getter;
-import usay.app.domain.dto.ErrorCode;
+import usay.app.domain.ErrorCode;
 
 @Getter
 public class InternalServerException extends BusinessException {

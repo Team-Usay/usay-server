@@ -7,12 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import usay.app.domain.dto.ApiResponse;
-import usay.app.domain.dto.ErrorCode;
+import usay.app.domain.ApiResponse;
+import usay.app.domain.ErrorCode;
 
 @RequiredArgsConstructor
 @RestControllerAdvice

@@ -1,4 +1,4 @@
-package usay.app.domain.dto;
+package usay.app.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
