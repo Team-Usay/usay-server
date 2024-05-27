@@ -1,6 +1,6 @@
 package usay.app.global.exception;
 
-import usay.app.domain.dto.ErrorCode;
+import usay.app.domain.ErrorCode;
 
 public class NotFoundException extends BusinessException {
 
