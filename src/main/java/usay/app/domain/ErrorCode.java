@@ -13,8 +13,8 @@ public enum ErrorCode {
 
 	// 404 Not Found
 	NOT_FOUND("SAY404", "Not Found"),
-	NOT_FOUND_AI_MODEL("SAY400", "AI Model Not Found"),
-
+	MEMBER_NOT_FOUND("SAY40410", "Member Not Found"),
+	MEMBER_DETAIL_NOT_FOUND("SAY40411", "Some of Member Detail Not Found"),
 	// 500 Internal Server Error
 	INTERNAL_SERVER_ERROR("SAY500", "Server Error");
 	// 401 Unauthorized
