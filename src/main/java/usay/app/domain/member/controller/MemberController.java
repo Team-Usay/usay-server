@@ -19,7 +19,7 @@ import usay.app.domain.member.service.MemberService;
 public class MemberController {
 	private final MemberService memberService;
 
-	@Operation(summary = "회원 정보 조회", description = "해당 회원의 정보를 조회할 수 있습니다.")
+	@Operation(summary = "회원 정보 조회", description = "회원 ID로 회원 정보를 조회합니다.")
 	@GetMapping("/{memberId}")
 	public ApiResponse<MemberDetail> getMember(@PathVariable Long memberId) {
 		return ApiResponse.success(memberService.getMemberDetail(memberId));
