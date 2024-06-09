@@ -12,7 +12,7 @@ public abstract class BusinessException extends RuntimeException {
 		this.errorCode = errorDetail;
 	}
 
-	public BusinessException(ErrorCode errorDetail) {
-		this.errorCode = errorDetail;
+	public BusinessException(ErrorCode errorCode) {
+		this.errorCode = errorCode;
 	}
 }
