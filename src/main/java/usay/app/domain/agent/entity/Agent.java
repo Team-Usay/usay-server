@@ -44,4 +44,8 @@ public class Agent extends BaseEntity {
 		this.difficulty = difficulty;
 		this.about = about;
 	}
+
+	public static Agent create() {
+		return new Agent("usay-demo", 1, "usay-demo");
+	}
 }

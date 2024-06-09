@@ -43,4 +43,8 @@ public class Room extends BaseEntity {
 		this.status = status;
 		this.agent = agent;
 	}
+
+	public static Room create() {
+		return new Room("usay-demo", RoomStatus.OPEN, Agent.create());
+	}
 }
