@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import usay.app.domain.chat.entity.Chat;
+import usay.app.domain.chat.entity.dto.ChatRecords;
 import usay.app.domain.chat.entity.dto.ChatRequestDTO.PostChatRequest;
 import usay.app.domain.chat.repository.ChatRepository;
 import usay.app.domain.member.entity.Member;
@@ -28,12 +29,12 @@ public class ChatService {
 	private final RoomRepository roomRepository;
 
 	@Transactional(readOnly = true)
-	public List<ChatRecordResponse> getChatList(Long roomId) {
-		List<Chat> chats = chatRepository.findByRoomIdOrderByCreatedAtDesc(roomId);
-
-		return chats.stream()
+	public ChatRecords getChatList(Long roomId) {
+		List<Chat> chats = chatRepository.findByRoomId(roomId);
+		List<ChatRecordResponse> chatRecords = chats.stream()
 				.map(ChatRecordResponse::from)
 				.collect(Collectors.toList());
+		return new ChatRecords(chatRecords);
 	}
 
 	@Transactional
@@ -44,11 +45,12 @@ public class ChatService {
 		return PostChatResponse.from(chat);
 	}
 
-	public List<ChatRecordResponse> getChatListByMemberId(Long memberId) {
-		List<Chat> chats = chatRepository.findByMemberIdOrderByCreatedAtDesc(memberId);
-
-		return chats.stream()
+	@Transactional(readOnly = true)
+	public ChatRecords getChatListByMemberId(Long memberId) {
+		List<Chat> chats = chatRepository.findByMemberId(memberId);
+		List<ChatRecordResponse> chatRecords = chats.stream()
 				.map(ChatRecordResponse::from)
 				.collect(Collectors.toList());
+		return new ChatRecords(chatRecords);
 	}
 }

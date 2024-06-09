@@ -8,9 +8,10 @@ import usay.app.domain.chat.entity.dto.ChatRequestDTO.PostChatRequest;
 public interface ChatRepository extends JpaRepository<Chat, Long> {
 	Chat getChatById(Long id);
 
-	List<Chat> findByRoomIdOrderByCreatedAtDesc(Long roomId);
 
 	Chat save(PostChatRequest postChatRequest);
 
-	List<Chat> findByMemberIdOrderByCreatedAtDesc(Long memberId);
+	List<Chat> findByRoomId(Long roomId);
+
+	List<Chat> findByMemberId(Long memberId);
 }
