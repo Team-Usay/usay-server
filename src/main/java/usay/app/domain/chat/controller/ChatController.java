@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import usay.app.domain.ApiResponse;
 import usay.app.domain.chat.entity.dto.ChatRecords;
+import usay.app.domain.chat.entity.dto.ChatRequestDTO.ModelAnswerRequest;
 import usay.app.domain.chat.entity.dto.ChatRequestDTO.PostChatRequest;
+import usay.app.domain.chat.entity.dto.ChatResponseDTO.ModelAnswerResponse;
 import usay.app.domain.chat.service.ChatService;
 
 @Tag(name = "답변", description = "사용자 답변 관련 API")
@@ -21,7 +23,6 @@ import usay.app.domain.chat.service.ChatService;
 @RestController
 @RequestMapping("/api/v1/chats")
 public class ChatController {
-
 	private final ChatService chatService;
 
 	@Operation(summary = "대화방 별 전체 채팅 조회", description = "해당 채팅방 내 모든 대화 기록을 조회합니다.")
@@ -42,5 +43,17 @@ public class ChatController {
 			@PathVariable Long memberId,
 			@RequestBody PostChatRequest postChatRequest) {
 		return ApiResponse.success(chatService.postChat(postChatRequest));
+	}
+
+	@Operation(summary = "시작 질문 조회", description = "챗봇 서버에서 초기 질문을 조회합니다.")
+	@GetMapping("/init")
+	public ApiResponse<ModelAnswerResponse> getInitialMessage() {
+		return ApiResponse.success(chatService.getInitialMessage());
+	}
+
+	@Operation(summary = "답변 조회", description = "사용자의 질문에 대한 답변을 조회합니다.")
+	@PostMapping("/ask")
+	public ApiResponse<ModelAnswerResponse> getAnswer(@RequestBody ModelAnswerRequest request) {
+		return ApiResponse.success(chatService.getAnswer(request));
 	}
 }

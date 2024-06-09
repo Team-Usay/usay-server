@@ -40,9 +40,21 @@ public class ChatResponseDTO {
 		public static PostChatResponse from(Chat chat) {
 			return PostChatResponse.builder()
 					.id(chat.getId())
-					.memberId(chat.getMember().getId())
-					.roomId(chat.getRoom().getId())
 					.content(chat.getContent())
+					.build();
+		}
+	}
+
+	@Getter
+	@Builder
+	@AllArgsConstructor
+	@NoArgsConstructor
+	public static class ModelAnswerResponse {
+		private String answer;
+
+		public static ModelAnswerResponse from(String answer) {
+			return ModelAnswerResponse.builder()
+					.answer(answer)
 					.build();
 		}
 	}
