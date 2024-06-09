@@ -1,6 +1,9 @@
 spring:
   profiles:
     default: mysql
+model:
+  server:
+    url: ${MODEL_SERVER_URL}
 ---
 spring:
   config.activate.on-profile: local
