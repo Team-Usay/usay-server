@@ -11,14 +11,14 @@ public class ChatResponseDTO {
 	@Builder
 	@AllArgsConstructor
 	@NoArgsConstructor
-	public static class GetChatResponse {
+	public static class ChatRecordResponse {
 		private Long id;
 		private Long memberId;
 		private Long roomId;
 		private String content;
 
-		public static GetChatResponse from(Chat chat) {
-			return GetChatResponse.builder()
+		public static ChatRecordResponse from(Chat chat) {
+			return ChatRecordResponse.builder()
 					.id(chat.getId())
 					.memberId(chat.getMember().getId())
 					.roomId(chat.getRoom().getId())

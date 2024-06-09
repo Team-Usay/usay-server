@@ -1,6 +1,6 @@
 package usay.app.domain.chat.service;
 
-import static usay.app.domain.chat.entity.dto.ChatResponseDTO.GetChatResponse;
+import static usay.app.domain.chat.entity.dto.ChatResponseDTO.ChatRecordResponse;
 import static usay.app.domain.chat.entity.dto.ChatResponseDTO.PostChatResponse;
 
 import java.util.List;
@@ -28,11 +28,11 @@ public class ChatService {
 	private final RoomRepository roomRepository;
 
 	@Transactional(readOnly = true)
-	public List<GetChatResponse> getChatList(Long roomId) {
+	public List<ChatRecordResponse> getChatList(Long roomId) {
 		List<Chat> chats = chatRepository.findByRoomIdOrderByCreatedAtDesc(roomId);
 
 		return chats.stream()
-				.map(GetChatResponse::from)
+				.map(ChatRecordResponse::from)
 				.collect(Collectors.toList());
 	}
 
@@ -44,11 +44,11 @@ public class ChatService {
 		return PostChatResponse.from(chat);
 	}
 
-	public List<GetChatResponse> getChatListByMemberId(Long memberId) {
+	public List<ChatRecordResponse> getChatListByMemberId(Long memberId) {
 		List<Chat> chats = chatRepository.findByMemberIdOrderByCreatedAtDesc(memberId);
 
 		return chats.stream()
-				.map(GetChatResponse::from)
+				.map(ChatRecordResponse::from)
 				.collect(Collectors.toList());
 	}
 }
