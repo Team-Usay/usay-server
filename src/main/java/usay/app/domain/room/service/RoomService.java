@@ -13,14 +13,16 @@ import usay.app.global.exception.NotFoundException;
 public class RoomService {
 	private final RoomRepository roomRepository;
 
-	@Transactional
-	public Long createRoom() {
-		return roomRepository.save(new Room()).getId();
-	}
-
 	@Transactional(readOnly = true)
 	public Room getRoomById(Long roomId) {
 		return roomRepository.findById(roomId)
 				.orElseThrow(() -> new NotFoundException(ErrorCode.ROOM_NOT_FOUND));
+	}
+
+	@Transactional
+	public Long createRoom() {
+		Room room = Room.create();
+		roomRepository.save(room);
+		return room.getId();
 	}
 }
